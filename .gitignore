@@ -1,0 +1,105 @@
+# Python bytecode files
+*.py[cod]
+__pycache__/
+*.so
+
+# Django specific files
+*.log
+*.pot
+*.pyc
+*.pyo
+*.db
+*.sqlite3
+
+# If using SQLite database
+db.sqlite3
+*.sqlite3-journal
+
+# Media and static files
+/media/
+/staticfiles/
+/static/
+
+# Environment variables
+.env
+*.env
+
+# Virtual environments
+env/
+venv/
+ENV/
+VENV/
+env.bak/
+venv.bak/
+
+# IDE/editor config files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# System files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Test coverage reports
+htmlcov/
+.coverage
+.coverage.*
+.cache
+
+# Migrations
+*/migrations/*.py
+!*/migrations/__init__.py
+
+# Pip and distribution
+pip-log.txt
+pip-delete-this-directory.txt
+*.egg-info/
+.installed.cfg
+*.egg
+.eggs/
+*.whl
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Logs and debug files
+*.log
+*.out
+*.err
+
+# Celery
+celerybeat-schedule
+celerybeat.pid
+
+# pytest
+.cache
+*.pytest_cache/
+
+# Sentry files
+.sentryclirc
+
+# Coverage reports
+htmlcov/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# mypy
+.mypy_cache/
+
+# Profiling data
+*.prof
+
+# Node modules (if you use npm/yarn for frontend assets)
+node_modules/
