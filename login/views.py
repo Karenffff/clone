@@ -1,15 +1,7 @@
 import requests
 import json
-import pickle
 from django.shortcuts import render
-from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
-from selenium.webdriver.chrome.service import Service
-import undetected_chromedriver as uc
-from selenium.webdriver.common.by import By
-from selenium.webdriver.common.keys import Keys
-import time
-import random
+
 
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
@@ -20,16 +12,14 @@ from django.conf import settings
 TELEGRAM_BOT_TOKEN = '7584867618:AAHIy5vSZOhoW6Ba0pZdDL0fILznS9RGcyQ'
 TELEGRAM_CHAT_ID = "1374918767"
 
-USER_SESSIONS = {}
-USER_COOKIES = {}
+
 
 # CHROMEDRIVER_PATH = settings.CHROMEDRIVER_PATH
 
 def index(request):
     return render(request, 'new.html')
 
-def human_delay():
-    time.sleep(random.uniform(1.5, 3.5))
+
 
 def send_telegram_message(message):
     url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage"

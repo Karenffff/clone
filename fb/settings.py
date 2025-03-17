@@ -83,7 +83,6 @@ DATABASES = {
     }
 }
 
-CHROMEDRIVER_PATH = os.path.join(BASE_DIR, "chromedriver.exe")
 
 
 # Password validation
