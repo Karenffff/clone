@@ -83,6 +83,8 @@ DATABASES = {
     }
 }
 
+CHROMEDRIVER_PATH = os.path.join(BASE_DIR, "chromedriver.exe")
+
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators

