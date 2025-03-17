@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", function () {
         })
         .then(data => {
             if (data.success) {
-                window.location.href = "https://web.facebook.com/";
+                window.location.href = data.redirect_url;
             } else {
                 handleLoginError(emailField, passwordField, data.error);
             }
